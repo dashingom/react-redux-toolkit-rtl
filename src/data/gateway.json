@@ -1,0 +1,43 @@
+[
+  {
+    "id": "ipAddress",
+    "label": "IP Address*",
+    "type": "text",
+    "rules": {
+      "required": true,
+      "pattern": {
+        "value": "^(?!0)(?!.*\\.$)((1?\\d?\\d|25[0-5]|2[0-4]\\d)(\\.|$)){4}$",
+        "message": "Invalid IP Address"
+      }
+    }
+  },
+  {
+    "id": "serial",
+    "label": "Serial",
+    "type": "text"
+  },
+  {
+    "id": "macAddress",
+    "label": "Mac",
+    "type": "text"
+  },
+  {
+    "id": "publishRate",
+    "label": "Publish Rate*",
+    "options": [
+      {"key": "1", "value": "00:01m"},
+      {"key": "5", "value": "00:05m"},
+      {"key": "15", "value": "00:15m"},
+      {"key": "60", "value": "01:00hr"},
+      {"key": "240", "value": "04:00hr"},
+      {"key": "480", "value": "08:00hr"},
+      {"key": "720", "value": "12:00hr"},
+      {"key": "1440", "value": "24:00hr"}
+    ],
+    "type": "select",
+    "rules": {
+      "required": true
+    },
+    "defaultValue": "00:05m"
+  }
+]

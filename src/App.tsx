@@ -4,8 +4,9 @@ import {Security, SecureRoute, LoginCallback} from '@okta/okta-react';
 import {OktaAuth, toRelativeUrl} from '@okta/okta-auth-js';
 import Home from './Home';
 import Login from './Login';
-import Protected from './Protected';
 import config from './okta-config';
+import AddDevice from './pages/AddDevice';
+import MyProfile from './pages/MyProfile';
 
 const oktaAuth = new OktaAuth(config.oidc);
 
@@ -27,8 +28,9 @@ const App = () => {
           oktaAuth={oktaAuth}
           onAuthRequired={customAuthHandler}
           restoreOriginalUri={restoreOriginalUri}>
-          <Route path="/" exact component={Home} />
-          <SecureRoute path="/protected" component={Protected} />
+          <SecureRoute path="/" exact component={Home} />
+          <SecureRoute path="/add-device" exact component={AddDevice} />
+          <SecureRoute path="/my-profile" exact component={MyProfile} />
           <Route path="/login" render={() => <Login />} />
           <Route path="/login/callback" component={LoginCallback} />
         </Security>
