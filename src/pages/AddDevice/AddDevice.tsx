@@ -1,16 +1,20 @@
-import React, {useEffect, useState} from 'react';
-import {useForm} from 'react-hook-form';
-import gateway from '../../data/gateway.json';
-import Element from '../../components/Element';
-import Navbar from '../../components/Navbar';
-import Container from '@mui/material/Container';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import {useHistory} from 'react-router-dom';
+import React, {useEffect, useState} from "react";
+import {useForm} from "react-hook-form";
+
+import Element from "../../components/Element";
+import Navbar from "../../components/Navbar";
+import Container from "@mui/material/Container";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
+import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import {useHistory} from "react-router-dom";
+
+//Data
+import gateway from "../../data/gateway.json";
+import starfishChild from "../../data/starfish-child.json";
 
 const AddDevice = () => {
   const [elements, setElements] = useState<any>(null);
@@ -22,12 +26,12 @@ const AddDevice = () => {
     reset,
     control,
     formState: {isDirty, isValid},
-  } = useForm({mode: 'onChange'});
+  } = useForm({mode: "onChange"});
 
   useEffect(() => {
     reset();
 
-    setElements(gateway);
+    setElements(starfishChild);
   }, []);
 
   const submitHandler = (data: any, e: any): void => {
@@ -36,7 +40,7 @@ const AddDevice = () => {
 
   const handleDiscardChanges = (): void => {
     if (isDirty) {
-      history.push('/');
+      history.push("/");
     } else {
       setDiscardChangesModal(true);
     }
@@ -61,22 +65,22 @@ const AddDevice = () => {
           <CardActions>
             <Grid container>
               <Grid item xs={3}>
-                <Button variant={'outlined'} onClick={handleDiscardChanges}>
+                <Button variant={"outlined"} onClick={handleDiscardChanges}>
                   Cancel
                 </Button>
               </Grid>
               <Grid item xs={9}>
                 <Stack
                   spacing={2}
-                  direction={'row'}
-                  justifyContent={'flex-end'}>
+                  direction={"row"}
+                  justifyContent={"flex-end"}>
                   <Button
-                    variant={'contained'}
+                    variant={"contained"}
                     disabled={!isValid}
                     onClick={(e): void => {
                       void handleSubmit(submitHandler)(e);
                     }}>
-                    Save Device
+                    Submit
                   </Button>
                 </Stack>
               </Grid>

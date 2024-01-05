@@ -1,0 +1,174 @@
+[
+  {
+    "id": "supportedDeviceType",
+    "label": "Supported Device Type*",
+    "options": [{"key": "pxm1000", "value": "PXM1000"}],
+    "type": "select",
+    "rules": {
+      "required": true
+    }
+  },
+  {
+    "id": "deviceName",
+    "label": "Device Name*",
+    "type": "text",
+    "rules": {
+      "required": true
+    }
+  },
+  {
+    "id": "scanRate",
+    "label": "Scan Rate*",
+    "type": "text",
+    "rules": {
+      "required": true,
+      "min": {
+        "value": 1000,
+        "message": "Please enter valid scan rate. Valid Scan Rate are between 1000 - 3600000"
+      },
+      "max": {
+        "value": 3600000,
+        "message": "Please enter valid scan rate. Valid Scan Rate are between 1000 - 3600000"
+      }
+    },
+    "defaultValue": 1000
+  },
+  {
+    "id": "deviceAddress",
+    "label": "Device Address*",
+    "type": "text",
+    "rules": {
+      "required": true,
+      "min": {
+        "value": 1,
+        "message": "Valid Device address are between 1 - 255."
+      },
+      "max": {
+        "value": 255,
+        "message": "Valid Device address are between 1 - 255."
+      }
+    },
+    "defaultValue": 1
+  },
+  {
+    "id": "serialNumber",
+    "label": "Serial Number",
+    "type": "text"
+  },
+  {
+    "id": "communicationType",
+    "label": "Communication Type*",
+    "options": [
+      {"key": "SERIAL", "value": "SERIAL"},
+      {"key": "TCP", "value": "TCP"}
+    ],
+    "type": "select",
+    "rules": {
+      "required": true
+    }
+  },
+  {
+    "id": "baudRate",
+    "label": "Baud Rate*",
+    "options": [
+      {"key": "SERIAL", "value": "SERIAL"},
+      {"key": "TCP", "value": "TCP"}
+    ],
+    "type": "select",
+    "rules": {
+      "required": true
+    },
+    "hidden": "SERIAL"
+  },
+  {
+    "id": "dataBits",
+    "label": "Data Bits*",
+    "options": [
+      {"key": "SERIAL", "value": "SERIAL"},
+      {"key": "TCP", "value": "TCP"}
+    ],
+    "type": "select",
+    "rules": {
+      "required": true
+    },
+    "hidden": "SERIAL"
+  },
+  {
+    "id": "comPort",
+    "label": "ComPort*",
+    "type": "text",
+    "rules": {
+      "required": true
+    },
+    "hidden": "SERIAL"
+  },
+  {
+    "id": "parity",
+    "label": "Parity*",
+    "options": [
+      {"key": "SERIAL", "value": "SERIAL"},
+      {"key": "TCP", "value": "TCP"}
+    ],
+    "type": "select",
+    "rules": {
+      "required": true
+    },
+    "hidden": "SERIAL"
+  },
+  {
+    "id": "stopBits",
+    "label": "Stop Bits*",
+    "options": [
+      {"key": "SERIAL", "value": "SERIAL"},
+      {"key": "TCP", "value": "TCP"}
+    ],
+    "type": "select",
+    "rules": {
+      "required": true
+    },
+    "hidden": "SERIAL"
+  },
+  {
+    "id": "macAddress",
+    "label": "Mac*",
+    "type": "text",
+    "rules": {
+      "required": true,
+      "pattern": {
+        "value": ""
+      }
+    },
+    "hidden": "TCP"
+  },
+  {
+    "id": "deviceIp",
+    "label": "Device IP*",
+    "type": "text",
+    "rules": {
+      "required": true,
+      "pattern": {
+        "value": "^(?!0)(?!.*\\.$)((1?\\d?\\d|25[0-5]|2[0-4]\\d)(\\.|$)){4}$",
+        "message": "Invalid IP Address"
+      }
+    },
+    "hidden": "TCP"
+  },
+  {
+    "id": "port",
+    "label": "Port*",
+    "type": "text",
+    "rules": {
+      "required": true,
+      "min": {
+        "value": 0,
+        "message": "Valid Port are between 0 - 65535."
+      },
+      "max": {
+        "value": 65535,
+        "message": "Valid Port are between 0 - 65535."
+      }
+    },
+    "defaultValue": 1,
+    "hidden": "TCP"
+  }
+]
